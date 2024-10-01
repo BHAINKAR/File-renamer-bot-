@@ -27,5 +27,3 @@ def handle_new_name(message):
     del user_new_names[message.chat.id]
     os.remove(renamed_file_name)
     bot.polling()
-print("Bot is running...")
-bot.polling()
