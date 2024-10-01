@@ -3,7 +3,7 @@ import telebot
 from flask import Flask, request
 
 # Initialize the bot
-bot = telebot.TeleBot("7580333515:AAHzOnIET_bPmjfHgtoNRbTXWvuCeevfeEE")
+bot = telebot.TeleBot("7580333515:AAErWcPagesAelLeEQB9bvg3ATunlza7ugQ")
 user_new_names = {}
 
 # Initialize the Flask app
@@ -23,7 +23,7 @@ def index():
 @bot.message_handler(commands=['start'])
 @bot.message_handler(commands=['rename'])
 def send_welcome(message):
-    bot.reply_to(message, f"""<b>Welcome to the file renamer bot. Send me a file to rename it. By @bhainkar</b>""",parse_mode="HTML") 
+    bot.reply_to(message, f"""<b>Wᴇʟᴄᴏᴍᴇ ᴛᴏ ғɪʟᴇ ʀᴇɴᴀᴍᴇʀ ʙᴏᴛ.\nSᴇɴᴅ ᴍᴇ ᴀ ғɪʟᴇ ᴛᴏ ʀᴇɴᴀᴍᴇ ɪᴛ.\nDᴇᴠ Bʏ @bhainkar \n\n𝗦𝗨𝗕𝗦𝗖𝗥𝗜𝗕𝗘:\n@Bhainkargiveaway</b>""",parse_mode="HTML") 
 
 @bot.message_handler(content_types=['document'])
 def handle_file(message):
@@ -31,7 +31,7 @@ def handle_file(message):
     file_id = message.document.file_id
     file_info = bot.get_file(file_id)
     downloaded_file = bot.download_file(file_info.file_path)
-    bot.send_message(message.chat.id, f"""<b>Current file name:</b> <code>{file_name}</code>\n<b>What should be the new name?</b>""",parse_mode="HTML")
+    bot.send_message(message.chat.id, f"""<b>Cᴜʀʀᴇɴᴛ Fɪʟᴇ Nᴀᴍᴇ:</b> <code>{file_name}</code>\n<b>Wʜᴀᴛ sʜᴏᴜʟᴅ ʙᴇ ᴛʜᴇ ɴᴇᴡ ғɪʟᴇ ɴᴀᴍᴇ?</b>""",parse_mode="HTML")
     user_chat_id = message.chat.id
     user_new_names[user_chat_id] = (file_name, downloaded_file)
 
